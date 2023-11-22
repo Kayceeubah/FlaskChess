@@ -6,21 +6,6 @@ on:
       - master
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v4.7.1
-        with: 
-          python-version: 3.11.3
-           
-
-      - name: Install dependencies
-        run: |
-            echo building
 
   test:
     runs-on: ubuntu-latest
@@ -37,6 +22,22 @@ jobs:
         run: |
           python3 --version
           echo testing
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v4.7.1
+        with: 
+          python-version: 3.11.3
+           
+
+      - name: Install dependencies
+        run: |
+            echo building
 
   deploy:
     runs-on: ubuntu-latest
